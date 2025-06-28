@@ -1,41 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-		<!-- reset.css ress -->
-		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホーム - About Me</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="body">
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="#profile">プロフィール</a></li>
-                <li><a href="#hobbies">趣味</a></li>
-            </ul>
-        </nav>
-        <h1>わたしの自己紹介サイト</h1>
-    </header>
-    <main>
-        <section id="profile">
-            <h2>プロフィール</h2>
-            <p>こんにちは、わたしは[あなたの名前]です。これはわたしの自己紹介サイトです。</p>
-        </section>
-        <section id="hobbies">
-            <h2>趣味</h2>
-            <ul>
-                <li>読書</li>
-                <li>旅行</li>
-                <li>プログラミング</li>
-            </ul>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>&copy; 2024 わたしの自己紹介サイト</p>
-    </footer>
-    <script src="js/scripts.js"></script>
+<body>
+  <!-- カーソルの追従用要素 -->
+  <div class="cursor-trail"></div>
+
+  <!-- ヘッダー・ナビゲーション -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about/about.html">About Me</a></li>
+        <li><a href="hobby/hobby.html">Hobbies</a></li>
+        <li><a href="game/game.html">Games</a></li>
+        <li><a href="music/music.html">Music</a></li>
+        <li><a href="contact/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- メイン：ヒーローセクション -->
+  <main>
+    <section class="hero">
+      <h1 class="headline">HOME</h1>
+    </section>
+
+    <!-- メイン画像表示 -->
+    <section class="featured-image">
+      <img src="img/c7bc8d14-b947-44d0-9d7e-fbfe021d25f6.png" alt="メインビジュアル">
+    </section>
+
+    <section class="slideshow">
+      <div class="slide">
+        <img src="img/slide1.jpg" alt="スライド1" class="active">
+        <img src="img/slide2.jpg" alt="スライド2">
+        <img src="img/slide3.jpg" alt="スライド3">
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a> |
+      <a href="about/about.html">About Me</a> |
+      <a href="hobby/hobby.html">Hobbies</a> |
+      <a href="game/game.html">Games</a> |
+      <a href="music/music.html">Music</a> |
+      <a href="contact/contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const cursor = document.querySelector('.cursor-trail');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    });
+  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
-

@@ -1,0 +1,451 @@
+/* ゲームスライドショー */
+.game-slideshow {
+  position: relative;
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(255, 70, 85, 0.3);
+  border: 2px solid #ff4655;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, #0f1923, #1a2530);
+}
+
+.game-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  background: linear-gradient(135deg, #0f1923, #1a2530);
+}
+
+.game-slide.active {
+  opacity: 1;
+}
+
+.game-slide img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Apex Legends特別スタイル */
+.game-slide[data-game="apex"] {
+  background: linear-gradient(135deg, #1a2530, #0f1923);
+  position: relative;
+}
+
+.game-slide[data-game="apex"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: radial-gradient(circle at center right, rgba(255, 100, 0, 0.3), transparent 70%);
+  z-index: 1;
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  color: white;
+  padding: 3rem 2rem;
+  text-align: left;
+  z-index: 3;
+}
+
+.slide-overlay h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.game-slide[data-game="apex"] .slide-overlay h3 {
+  color: #ff6400;
+  background: linear-gradient(45deg, #ff6400, #ff8c42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-overlay p {
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* スライド切り替えボタン - 円形デザイン */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 70, 85, 0.9);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(255, 70, 85, 0.4);
+}
+
+.slide-btn:hover {
+  background: rgba(255, 70, 85, 1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 70, 85, 0.6);
+}
+
+.prev-btn {
+  left: 30px;
+}
+
+.next-btn {
+  right: 30px;
+}
+
+/* スライドインジケーター - 画像のデザインに合わせて */
+.slide-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.indicator.active {
+  background: #ff4655;
+  transform: scale(1.2);
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 70, 85, 0.6);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.1);
+}
+
+/* ゲームリンクセクション */
+.game-links {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.game-links h2 {
+  text-align: center;
+  color: #ff4655;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.game-link-card {
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #ff4655;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-link-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 70, 85, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.game-link-card:hover::before {
+  left: 100%;
+}
+
+.game-link-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 70, 85, 0.4);
+  border-color: #00d4ff;
+}
+
+.game-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.game-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.valorant-icon {
+  background: linear-gradient(45deg, #ff4655, #ff6b77, #00d4ff);
+  border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
+  position: relative;
+}
+
+.valorant-icon .game-valorant-logo {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  position: relative;
+}
+
+.apex-icon {
+  background: linear-gradient(45deg, #ff6600, #ff8c42);
+}
+
+.overwatch-icon {
+  background: linear-gradient(45deg, #f99e1a, #ffa726);
+}
+
+.fortnite-icon {
+  background: linear-gradient(45deg, #0078f2, #42a5f5);
+}
+
+.game-link-card h3 {
+  color: #ff4655;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rank {
+  color: #00d4ff;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.game-link-card p:not(.rank) {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat {
+  background: rgba(255, 70, 85, 0.2);
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ff4655;
+}
+
+/* クリック効果 */
+.game-link-card:active {
+  transform: translateY(-5px) scale(0.98);
+}
+
+/* VALORANTカード特別スタイル */
+.valorant-card {
+  border-color: #ff4655;
+  background: linear-gradient(135deg, #1a1f25, #0f1923, #1a1f25);
+  box-shadow: 0 8px 32px rgba(255, 70, 85, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.valorant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 70, 85, 0.1) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(0, 212, 255, 0.05) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.valorant-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 70, 85, 0.6);
+  border-color: #00d4ff;
+}
+
+.valorant-card:hover::before {
+  animation: valorant-glow 2s ease-in-out infinite;
+}
+
+@keyframes valorant-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ゲームロゴスタイル */
+.game-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* クリックヒント */
+.click-hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00d4ff;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  border: 1px solid #00d4ff;
+}
+
+.game-link-card:hover .click-hint {
+  opacity: 1;
+}
+
+/* スライドオーバーレイのVALORANTロゴ */
+.slide-overlay .valorant-logo {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* ゲームカード強化 */
+.game-link-card {
+  position: relative;
+}
+
+.game-link-card:hover {
+  cursor: pointer;
+}
+
+/* 各ゲームの特別なアイコンスタイル */
+.apex-icon .game-logo {
+  background: linear-gradient(45deg, #ff6600, #ff8c42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.overwatch-icon .game-logo {
+  background: linear-gradient(45deg, #f99e1a, #ffa726);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fortnite-icon .game-logo {
+  background: linear-gradient(45deg, #0078f2, #42a5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* スライドショーのクリック可能性を示すスタイル */
+.game-slide {
+  cursor: pointer;
+}
+
+.game-slide::after {
+  content: 'クリックして詳細を見る';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 70, 85, 0.9);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.game-slide:hover::after {
+  opacity: 1;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .slideshow-container {
+    height: 300px;
+  }
+  
+  .slide-overlay h3 {
+    font-size: 1.8rem;
+  }
+  
+  .slide-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+}

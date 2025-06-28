@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games - VALORANT風ポートフォリオ</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="game.css" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- カーソルの追従用要素 -->
+  <div class="cursor-trail"></div>
+
+  <!-- ヘッダー・ナビゲーション -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/about.html">About Me</a></li>
+        <li><a href="../hobby/hobby.html">Hobbies</a></li>
+        <li><a href="game.html" class="active">Games</a></li>
+        <li><a href="../music/music.html">Music</a></li>
+        <li><a href="../contact/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-logo">
+        <span class="valorant-logo">Games</span>
+      </div>
+      <h1 class="headline">GAMES</h1>
+    </section>
+
+    <!-- ゲームスライドショー -->
+    <section class="game-slideshow">
+      <div class="slideshow-container">
+        <div class="game-slide active" data-game="valorant">
+          <img src="../img/valorant-logo.png" alt="VALORANT Logo">
+          <div class="slide-overlay">
+            <h3 class="valorant-logo">VALORANT</h3>
+            <p>5v5 タクティカル FPS</p>
+          </div>
+        </div>
+        <div class="game-slide" data-game="apex">
+          <img src="../img/apex-logo.png" alt="Apex Legends Logo">
+          <div class="slide-overlay">
+            <h3>Apex Legends</h3>
+            <p>バトルロワイヤル</p>
+          </div>
+        </div>
+        <div class="game-slide" data-game="overwatch">
+          <img src="../img/overwatch-logo.png" alt="Overwatch 2 Logo">
+          <div class="slide-overlay">
+            <h3>Overwatch 2</h3>
+            <p>チーム対戦 FPS</p>
+          </div>
+        </div>
+        <div class="game-slide" data-game="fortnite">
+          <img src="../img/fortnite-logo.png" alt="Fortnite Logo">
+          <div class="slide-overlay">
+            <h3>Fortnite</h3>
+            <p>バトルロワイヤル</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- スライド切り替えボタン -->
+      <button class="slide-btn prev-btn" id="prev-btn">‹</button>
+      <button class="slide-btn next-btn" id="next-btn">›</button>
+      
+      <!-- スライドインジケーター -->
+      <div class="slide-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+        <span class="indicator" data-slide="3"></span>
+      </div>
+    </section>
+
+    <!-- ゲームリンク -->
+    <section class="game-links">
+      <h2>プレイ中のゲーム</h2>
+      <div class="game-grid">
+        <div class="game-link-card valorant-card" data-url="https://playvalorant.com/ja-jp/">
+          <div class="game-icon valorant-icon">
+            <span class="game-valorant-logo valorant-logo">V</span>
+          </div>
+          <div class="game-valorant-logo valorant-logo">VALORANT</div>
+          <p class="rank">ランク: Diamond</p>
+          <p>精密性と戦略が勝敗を分ける5v5のタクティカルFPS</p>
+          <div class="game-stats">
+            <span class="stat">メインエージェント: Jett</span>
+            <span class="stat">プレイ時間: 500h+</span>
+          </div>
+          <div class="click-hint">クリックして公式サイトへ</div>
+        </div>
+
+        <div class="game-link-card" data-url="https://www.ea.com/ja-jp/games/apex-legends">
+          <div class="game-icon apex-icon">
+            <div class="game-logo">A</div>
+          </div>
+          <h3>Apex Legends</h3>
+          <p class="rank">ランク: Master</p>
+          <p>レジェンドたちが覇権をかけて戦うバトルロワイヤル</p>
+          <div class="game-stats">
+            <span class="stat">メインレジェンド: Wraith</span>
+            <span class="stat">プレイ時間: 300h+</span>
+          </div>
+          <div class="click-hint">クリックして公式サイトへ</div>
+        </div>
+
+        <div class="game-link-card" data-url="https://overwatch.blizzard.com/ja-jp/">
+          <div class="game-icon overwatch-icon">
+            <div class="game-logo">OW</div>
+          </div>
+          <h3>Overwatch 2</h3>
+          <p class="rank">ランク: Grandmaster</p>
+          <p>ヒーローが活躍する6v6のチーム対戦FPS</p>
+          <div class="game-stats">
+            <span class="stat">メインヒーロー: Tracer</span>
+            <span class="stat">プレイ時間: 400h+</span>
+          </div>
+          <div class="click-hint">クリックして公式サイトへ</div>
+        </div>
+
+        <div class="game-link-card" data-url="https://www.fortnite.com/">
+          <div class="game-icon fortnite-icon">
+            <div class="game-logo">FN</div>
+          </div>
+          <h3>Fortnite</h3>
+          <p class="rank">ランク: Champion</p>
+          <p>建築要素が特徴的なバトルロワイヤルゲーム</p>
+          <div class="game-stats">
+            <span class="stat">勝利数: 100+</span>
+            <span class="stat">プレイ時間: 200h+</span>
+          </div>
+          <div class="click-hint">クリックして公式サイトへ</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="footer-nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about/about.html">About Me</a> |
+      <a href="../hobby/hobby.html">Hobbies</a> |
+      <a href="game.html">Games</a> |
+      <a href="../music/music.html">Music</a> |
+      <a href="../contact/contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="../js/scripts.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

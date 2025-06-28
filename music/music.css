@@ -1,0 +1,103 @@
+/* YouTube プレイヤーのスタイル */
+.youtube-player {
+  position: fixed;
+  bottom: -400px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #ff4655;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 70, 85, 0.4);
+  transition: bottom 0.5s ease;
+  z-index: 1000;
+}
+
+.youtube-player.active {
+  bottom: 20px;
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.player-header h3 {
+  color: #ff4655;
+  margin: 0;
+}
+
+.close-player {
+  background: none;
+  border: none;
+  color: #ff4655;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.close-player:hover {
+  background-color: rgba(255, 70, 85, 0.2);
+}
+
+.player-container {
+  padding: 1rem;
+}
+
+/* 音楽カードのアニメーション強化 */
+.music-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 70, 85, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.music-card:hover::before {
+  left: 100%;
+}
+
+.music-card.playing {
+  border-color: #00d4ff;
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.4);
+}
+
+.music-card.playing .music-cover {
+  background: linear-gradient(45deg, #00d4ff, #ff4655);
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .youtube-player {
+    width: 95%;
+  }
+  
+  .player-container iframe {
+    height: 250px;
+  }
+}
