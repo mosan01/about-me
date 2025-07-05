@@ -12,82 +12,196 @@
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (1920x1080) */
   background: linear-gradient(135deg, #0f1923, #1a2530);
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .game-slide {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease;
-  background: linear-gradient(135deg, #0f1923, #1a2530);
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .game-slide.active {
   opacity: 1;
 }
 
-.game-slide img {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  z-index: 2;
-}
-
-/* Apex Legends特別スタイル */
-.game-slide[data-game="apex"] {
-  background: linear-gradient(135deg, #1a2530, #0f1923);
-  position: relative;
-}
-
-.game-slide[data-game="apex"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  background: radial-gradient(circle at center right, rgba(255, 100, 0, 0.3), transparent 70%);
-  z-index: 1;
-}
-
+/* テキストオーバーレイを左下に配置 */
 .slide-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  width: 400px;
+  height: auto;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
   color: white;
-  padding: 3rem 2rem;
+  padding: 2rem;
   text-align: left;
-  z-index: 3;
+  z-index: 10;
+  border-radius: 0 12px 0 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (1920x1080) */
+  background: linear-gradient(135deg, #0f1923, #1a2530);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.game-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.game-slide.active {
+  opacity: 1;
+}
+
+/* 各ゲームスライドの背景スタイル */
+.game-slide[data-game="valorant"] {
+  background: linear-gradient(135deg, #0f1923, #1a2530);
+}
+
+.game-slide[data-game="apex"] {
+  background: linear-gradient(135deg, #ff6400, #1a2530);
+}
+
+
+
+.game-slide[data-game="fortnite"] {
+  background: linear-gradient(135deg, #00d4ff, #1a2530);
+}
+
+/* 画像を背景全体に表示するスタイル */
+.game-slide img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+  border-radius: 12px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 画像のエラーハンドリング */
+.game-slide img {
+  display: block;
+}
+
+/* 画像が読み込めない場合は非表示 */
+.game-slide img:not([src*="VALORANT_Logo_V.jpg"]) {
+  display: none;
+}
+
+/* 画像がない場合のゲームスライド表示 */
+.game-slide[data-game="apex"],
+.game-slide[data-game="fortnite"] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 各ゲームの背景パターン */
+.game-slide[data-game="apex"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 100, 0, 0.3), transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 140, 66, 0.3), transparent 50%);
+  z-index: 1;
+}
+
+
+
+.game-slide[data-game="fortnite"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 40% 60%, rgba(0, 212, 255, 0.3), transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(128, 0, 255, 0.3), transparent 50%);
+  z-index: 1;
+}
+
+/* スライドオーバーレイのz-indexを調整 */
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 2rem;
+  text-align: left;
+  z-index: 10;
+  border-radius: 0 12px 0 0;
+  backdrop-filter: blur(5px);
 }
 
 .slide-overlay h3 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+.slide-overlay p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  margin-top: 0.5rem;
+}
+
+/* 各ゲームタイトルの色設定 */
+.game-slide[data-game="valorant"] .slide-overlay h3 {
+  color: #ff4655;
 }
 
 .game-slide[data-game="apex"] .slide-overlay h3 {
   color: #ff6400;
-  background: linear-gradient(45deg, #ff6400, #ff8c42);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
-.slide-overlay p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  margin-bottom: 2rem;
+
+
+.game-slide[data-game="fortnite"] .slide-overlay h3 {
+  color: #00d4ff;
 }
 
 /* スライド切り替えボタン - 円形デザイン */
@@ -156,7 +270,7 @@
   transform: scale(1.1);
 }
 
-/* ゲームリンクセクション */
+/* ゲームリンクセクション - 改善版 */
 .game-links {
   max-width: 1200px;
   margin: 4rem auto;
@@ -168,24 +282,41 @@
   color: #ff4655;
   font-size: 2.5rem;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.game-links h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(45deg, #ff4655, #00d4ff);
+  border-radius: 2px;
 }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
 }
 
 .game-link-card {
   background: linear-gradient(135deg, #1a1f25, #0f1923);
-  border: 2px solid #ff4655;
-  border-radius: 12px;
-  padding: 2rem;
+  border: 2px solid #333;
+  border-radius: 16px;
+  padding: 2.5rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
 }
 
 .game-link-card::before {
@@ -196,7 +327,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 70, 85, 0.1), transparent);
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .game-link-card:hover::before {
@@ -204,221 +335,203 @@
 }
 
 .game-link-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(255, 70, 85, 0.4);
-  border-color: #00d4ff;
+  transform: translateY(-15px);
+  border-color: #ff4655;
+  box-shadow: 0 20px 40px rgba(255, 70, 85, 0.3);
 }
 
 .game-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-.game-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.valorant-icon {
-  background: linear-gradient(45deg, #ff4655, #ff6b77, #00d4ff);
-  border: 3px solid #fff;
-  box-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
-  position: relative;
-}
-
-.valorant-icon .game-valorant-logo {
-  font-size: 2rem;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  z-index: 2;
-  position: relative;
-}
-
-.apex-icon {
-  background: linear-gradient(45deg, #ff6600, #ff8c42);
-}
-
-.overwatch-icon {
-  background: linear-gradient(45deg, #f99e1a, #ffa726);
-}
-
-.fortnite-icon {
-  background: linear-gradient(45deg, #0078f2, #42a5f5);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .game-link-card h3 {
   color: #ff4655;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 各ゲームカードのタイトル色 */
+.game-link-card[data-url*="apex-legends"] h3 {
+  color: #ff6600;
+}
+
+.game-link-card[data-url*="fortnite"] h3 {
+  color: #00d4ff;
 }
 
 .rank {
   color: #00d4ff;
   font-weight: bold;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  display: inline-block;
 }
 
 .game-link-card p:not(.rank) {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  font-size: 1rem;
 }
 
 .game-stats {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
 }
 
 .stat {
-  background: rgba(255, 70, 85, 0.2);
-  padding: 0.5rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  background: linear-gradient(45deg, rgba(255, 70, 85, 0.2), rgba(255, 70, 85, 0.1));
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
   color: #ff4655;
+  border: 1px solid rgba(255, 70, 85, 0.3);
+  transition: all 0.3s ease;
 }
 
-/* クリック効果 */
-.game-link-card:active {
-  transform: translateY(-5px) scale(0.98);
+.stat:hover {
+  background: rgba(255, 70, 85, 0.3);
+  transform: translateX(5px);
 }
 
-/* VALORANTカード特別スタイル */
+/* Apexカードの統計情報のスタイル */
+.game-link-card[data-url*="apex-legends"] .stat {
+  background: linear-gradient(45deg, rgba(255, 102, 0, 0.2), rgba(255, 102, 0, 0.1));
+  color: #ff6600;
+  border: 1px solid rgba(255, 102, 0, 0.3);
+}
+
+.game-link-card[data-url*="apex-legends"] .stat:hover {
+  background: rgba(255, 102, 0, 0.3);
+  transform: translateX(5px);
+}
+
+/* Fortniteカードの統計情報のスタイル */
+.game-link-card[data-url*="fortnite"] .stat {
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.1));
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.game-link-card[data-url*="fortnite"] .stat:hover {
+  background: rgba(0, 212, 255, 0.3);
+  transform: translateX(5px);
+}
+
+/* 各ゲームの特別なスタイル */
 .valorant-card {
-  border-color: #ff4655;
-  background: linear-gradient(135deg, #1a1f25, #0f1923, #1a1f25);
-  box-shadow: 0 8px 32px rgba(255, 70, 85, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.valorant-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    linear-gradient(45deg, transparent 30%, rgba(255, 70, 85, 0.1) 50%, transparent 70%),
-    linear-gradient(-45deg, transparent 30%, rgba(0, 212, 255, 0.05) 50%, transparent 70%);
-  pointer-events: none;
-  z-index: 1;
+  border-color: #333;
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .valorant-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(255, 70, 85, 0.6);
-  border-color: #00d4ff;
+  transform: translateY(-15px);
+  border-color: #ff4655;
+  box-shadow: 0 20px 40px rgba(255, 70, 85, 0.3);
 }
 
-.valorant-card:hover::before {
-  animation: valorant-glow 2s ease-in-out infinite;
+.valorant-icon {
+  background: linear-gradient(45deg, #ff4655, #ff6b77);
+  border: 3px solid rgba(255, 70, 85, 0.3);
 }
 
-@keyframes valorant-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+.apex-icon {
+  background: linear-gradient(45deg, #ff6600, #ff8c42, #ffa726);
+  border: 3px solid rgba(255, 102, 0, 0.3);
 }
 
-/* ゲームロゴスタイル */
+
+
+.fortnite-icon {
+  background: linear-gradient(45deg, #0078f2, #42a5f5, #64b5f6);
+  border: 3px solid rgba(0, 120, 242, 0.3);
+}
+
 .game-logo {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
 }
 
-/* クリックヒント */
+.game-link-card:hover .game-logo {
+  transform: scale(1.1);
+}
+
+/* クリックヒント - 改善版 */
 .click-hint {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: none;
   color: #00d4ff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  background: rgba(0, 212, 255, 0.1);
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.1));
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
   border: 1px solid #00d4ff;
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  margin-top: auto;
+  align-self: center;
 }
 
 .game-link-card:hover .click-hint {
   opacity: 1;
+  transform: translateY(-5px);
 }
 
-/* スライドオーバーレイのVALORANTロゴ */
-.slide-overlay .valorant-logo {
-  font-size: 2.5rem;
-  letter-spacing: 3px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
+/* ホバーエフェクト強化 */
+.game-link-card:hover .game-icon {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* ゲームカード強化 */
-.game-link-card {
-  position: relative;
+.game-link-card:hover h3 {
+  color: #00d4ff;
+  transform: translateY(-3px);
+}
+
+/* アニメーション追加 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .game-link-card:hover {
-  cursor: pointer;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* 各ゲームの特別なアイコンスタイル */
-.apex-icon .game-logo {
-  background: linear-gradient(45deg, #ff6600, #ff8c42);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* 3D効果の改善 */
+.game-link-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-.overwatch-icon .game-logo {
-  background: linear-gradient(45deg, #f99e1a, #ffa726);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.fortnite-icon .game-logo {
-  background: linear-gradient(45deg, #0078f2, #42a5f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* スライドショーのクリック可能性を示すスタイル */
-.game-slide {
-  cursor: pointer;
-}
-
-.game-slide::after {
-  content: 'クリックして詳細を見る';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 70, 85, 0.9);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.game-slide:hover::after {
-  opacity: 1;
+.game-link-card:hover {
+  transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
 }
 
 /* レスポンシブ対応 */
@@ -427,8 +540,19 @@
     height: 300px;
   }
   
+  .slide-overlay {
+    width: 100%;
+    right: 0;
+    text-align: center;
+    border-radius: 0;
+  }
+  
   .slide-overlay h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+  }
+  
+  .slide-overlay p {
+    font-size: 1rem;
   }
   
   .slide-btn {
@@ -447,5 +571,18 @@
   
   .next-btn {
     right: 10px;
+  }
+}
+
+/* 低スペック向けメディアクエリ */
+@media (max-width: 768px) {
+  .slide-overlay {
+    backdrop-filter: none; /* blur処理を無効化 */
+  }
+  
+  .cursor-trail {
+    width: 30px;
+    height: 30px;
+    box-shadow: none;
   }
 }

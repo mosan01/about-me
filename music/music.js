@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 音楽の情報
   const musicData = {
-    'dQw4w9WgXcQ': 'エレクトロニック - 集中用BGM',
-    'jfKfPfyJRdk': 'LoFi Hip Hop - 作業用BGM',
-    '2WPCLda_erI': 'ゲーム音楽 - VALORANT OST'
+    'gpdh9AUzQjY': 'エレクトロニック - 集中用BGM',
+    'rHcQZ8kHJ_w': 'LoFi Hip Hop - 作業用BGM',
+    'Gi2yWFqN_Zc': 'ゲーム音楽 - VALORANT OST'
   };
 
   // デバッグ用：要素が見つかるかチェック

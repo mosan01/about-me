@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - VALORANT風ポートフォリオ</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- カーソルの追従用要素 -->
+  <div class="cursor-trail"></div>
+
+  <!-- ヘッダー・ナビゲーション -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/about.html">About Me</a></li>
+        <li><a href="../hobby/hobby.html">Hobbies</a></li>
+        <li><a href="../game/game.html">Games</a></li>
+        <li><a href="../music/music.html">Music</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="headline">CONTACT</h1>
+    </section>
+
+    <section class="contact-content">
+      <div class="contact-intro">
+        <p>
+          何かご質問やご要望がありましたら、お気軽にお声かけください。
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- 連絡先情報 -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>ktc25a31k0003@edu.kyoto-tech.ac.jp</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div class="contact-details">
+              <h4>Discord</h4>
+              <p>momochi01</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- お問い合わせフォーム -->
+        <div class="contact-form-container">
+          <h3>Send Message</h3>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">お名前</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">件名</label>
+              <select id="subject" name="subject" required>
+                <option value="">件名を選択してください</option>
+                <option value="project">趣味について</option>
+                <option value="collaboration">コラボレーション</option>
+                <option value="gaming">ゲームについて</option>
+                <option value="music">音楽について</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">メッセージ</label>
+              <textarea id="message" name="message" rows="6" required placeholder="内容を入力してください..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">送信</span>
+              <span class="btn-effect"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="footer-nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about/about.html">About Me</a> |
+      <a href="../hobby/hobby.html">Hobbies</a> |
+      <a href="../game/game.html">Games</a> |
+      <a href="../music/music.html">Music</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="../js/scripts.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

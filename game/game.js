@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameUrls = {
     'valorant': 'https://playvalorant.com/ja-jp/',
     'apex': 'https://www.ea.com/ja-jp/games/apex-legends',
-    'overwatch': 'https://overwatch.blizzard.com/ja-jp/',
     'fortnite': 'https://www.fortnite.com/'
   };
 
@@ -37,15 +36,30 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentSlide);
   }
 
+  // 手動操作時に自動スライドを一時停止して再開
+  function resetAutoSlide() {
+    stopAutoSlide();
+    setTimeout(() => {
+      startAutoSlide();
+    }, 100);
+  }
+
   // ボタンイベント
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
 
   // インジケータークリックイベント
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
       currentSlide = index;
       showSlide(currentSlide);
+      resetAutoSlide();
     });
   });
 
@@ -61,22 +75,43 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           slide.style.transform = 'scale(1)';
         }, 150);
+        
+        // 自動スライドを一時停止して再開
+        resetAutoSlide();
       }
     });
   });
 
-  // 自動スライド（5秒間隔）
-  let autoSlideInterval = setInterval(nextSlide, 5000);
+  // 自動スライド（3秒間隔）
+  let autoSlideInterval;
+  
+  function startAutoSlide() {
+    // 既存のインターバルをクリア
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+    }
+    autoSlideInterval = setInterval(nextSlide, 3000);
+  }
+  
+  function stopAutoSlide() {
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = null;
+    }
+  }
+
+  // 自動スライド開始
+  startAutoSlide();
 
   // マウスホバーで自動スライドを停止
   const slideshowContainer = document.querySelector('.game-slideshow');
   if (slideshowContainer) {
     slideshowContainer.addEventListener('mouseenter', () => {
-      clearInterval(autoSlideInterval);
+      stopAutoSlide();
     });
 
     slideshowContainer.addEventListener('mouseleave', () => {
-      autoSlideInterval = setInterval(nextSlide, 5000);
+      startAutoSlide();
     });
   }
 
@@ -84,8 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
       prevSlide();
+      resetAutoSlide();
     } else if (e.key === 'ArrowRight') {
       nextSlide();
+      resetAutoSlide();
     }
   });
 
@@ -144,4 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = '';
     });
   });
+
+  // 画像のエラーハンドリング
+  const gameImages = document.querySelectorAll('.game-slide img');
+  gameImages.forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      console.log(`画像が見つかりません: ${this.src}`);
+    });
+    
+    img.addEventListener('load', function() {
+      this.style.display = 'block';
+      console.log(`画像が読み込まれました: ${this.src}`);
+    });
+  });
+
+  // 初期表示
+  showSlide(0);
 });
