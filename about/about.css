@@ -1,0 +1,397 @@
+/* About Me ページ専用スタイル */
+
+/* ヒーローセクション */
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: #00d4ff;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* メインコンテンツ */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* プロフィールセクション */
+.profile-section {
+  margin-bottom: 4rem;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #333;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(255, 70, 85, 0.2);
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  border-color: #ff4655;
+  box-shadow: 0 12px 40px rgba(255, 70, 85, 0.3);
+  transform: translateY(-5px);
+}
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #ff4655, #ff6b77);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid rgba(255, 70, 85, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 70, 85, 0.4);
+}
+
+.avatar-icon {
+  font-size: 6rem;
+  color: white;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.profile-info h2 {
+  font-size: 2.5rem;
+  color: #ff4655;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+/* 名前表示 */
+.name-display {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.name-label {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.name-text {
+  color: #ff4655;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 4px rgba(255, 70, 85, 0.3);
+  margin-left: 0.5rem;
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: 2.2rem;
+  color: #ff4655;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(45deg, #ff4655, #00d4ff);
+  border-radius: 2px;
+}
+
+/* スキルセクション */
+.skills-section {
+  margin-bottom: 4rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+}
+
+.skill-category {
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+}
+
+.skill-category h3 {
+  color: #00d4ff;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-name {
+  color: #f0f0f0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(45deg, #ff4655, #ff6b77);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 2s ease-in-out;
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 経験セクション */
+.experience-section {
+  margin-bottom: 4rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  bottom: 2rem;
+  width: 3px;
+  background: linear-gradient(to bottom, #ff4655, #00d4ff);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-date {
+  background: linear-gradient(45deg, #00d4ff, #42a5f5);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.timeline-content {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: #ff4655;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 70, 85, 0.2);
+}
+
+.timeline-content h3 {
+  color: #ff4655;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 目標セクション */
+.goals-section {
+  margin-bottom: 4rem;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.goal-card {
+  background: linear-gradient(135deg, #1a1f25, #0f1923);
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.goal-card:hover {
+  border-color: #00d4ff;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3);
+}
+
+.goal-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.goal-card h3 {
+  color: #00d4ff;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.goal-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-card li {
+  color: #e0e0e0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+  transition: color 0.3s ease;
+}
+
+.goal-card li:last-child {
+  border-bottom: none;
+}
+
+.goal-card li:hover {
+  color: #ff4655;
+}
+
+.goal-card li::before {
+  content: '▶';
+  color: #ff4655;
+  margin-right: 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    padding-left: 40px;
+  }
+
+  .timeline-item::before {
+    left: 20px;
+    transform: translateY(-50%);
+  }
+
+  .timeline-date {
+    align-self: flex-start;
+  }
+
+  .goals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 1rem;
+  }
+
+  .profile-card,
+  .skill-category,
+  .timeline-content,
+  .goal-card {
+    padding: 1.5rem;
+  }
+}

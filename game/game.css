@@ -86,13 +86,13 @@
 }
 
 .game-slide[data-game="apex"] {
-  background: linear-gradient(135deg, #ff6400, #1a2530);
+  background: linear-gradient(135deg, #0f1923, #1a2530);
 }
 
 
 
 .game-slide[data-game="fortnite"] {
-  background: linear-gradient(135deg, #00d4ff, #1a2530);
+  background: linear-gradient(135deg, #0f1923, #1a2530);
 }
 
 /* 画像を背景全体に表示するスタイル */
@@ -116,9 +116,9 @@
   display: block;
 }
 
-/* 画像が読み込めない場合は非表示 */
-.game-slide img:not([src*="VALORANT_Logo_V.jpg"]) {
-  display: none;
+/* すべての画像を表示 */
+.game-slide img {
+  display: block;
 }
 
 /* 画像がない場合のゲームスライド表示 */
@@ -137,9 +137,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 100, 0, 0.3), transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(255, 140, 66, 0.3), transparent 50%);
+  background: transparent;
   z-index: 1;
 }
 
@@ -152,9 +150,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 40% 60%, rgba(0, 212, 255, 0.3), transparent 50%),
-    radial-gradient(circle at 60% 40%, rgba(128, 0, 255, 0.3), transparent 50%);
+  background: transparent;
   z-index: 1;
 }
 
@@ -450,7 +446,7 @@
 }
 
 .valorant-icon {
-  background: linear-gradient(45deg, #ff4655, #ff6b77);
+  background: transparent;
   border: 3px solid rgba(255, 70, 85, 0.3);
 }
 
@@ -472,6 +468,14 @@
   color: #fff;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
+}
+
+/* ゲームアイコン画像のスタイル */
+.game-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .game-link-card:hover .game-logo {

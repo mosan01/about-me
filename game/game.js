@@ -63,24 +63,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // スライドクリックでゲームサイトへ
-  slides.forEach(slide => {
-    slide.addEventListener('click', () => {
-      const gameType = slide.dataset.game;
-      if (gameUrls[gameType]) {
-        window.open(gameUrls[gameType], '_blank');
-        
-        // クリック効果
-        slide.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          slide.style.transform = 'scale(1)';
-        }, 150);
-        
-        // 自動スライドを一時停止して再開
-        resetAutoSlide();
-      }
-    });
-  });
+  // スライドクリック機能を無効化（コメントアウト）
+  // slides.forEach(slide => {
+  //   slide.addEventListener('click', () => {
+  //     const gameType = slide.dataset.game;
+  //     if (gameUrls[gameType]) {
+  //       window.open(gameUrls[gameType], '_blank');
+  //       
+  //       // クリック効果
+  //       slide.style.transform = 'scale(0.98)';
+  //       setTimeout(() => {
+  //         slide.style.transform = 'scale(1)';
+  //       }, 150);
+  //       
+  //       // 自動スライドを一時停止して再開
+  //       resetAutoSlide();
+  //     }
+  //   });
+  // });
 
   // 自動スライド（3秒間隔）
   let autoSlideInterval;

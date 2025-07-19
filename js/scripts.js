@@ -8,6 +8,117 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // タイピングアニメーション（ホームページのみ）
+  const typingWords = document.getElementById('typing-words');
+  if (typingWords) {
+    const words = ['プログラマー', 'ゲーマー', '音楽愛好家', 'アニメファン', '映画好き'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeWriter() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typingWords.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingWords.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+
+      const speed = isDeleting ? 100 : 150;
+      setTimeout(typeWriter, speed);
+    }
+
+    typeWriter();
+  }
+
+  // 統計カウンターアニメーション
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const progressBars = document.querySelectorAll('.progress');
+  
+  function animateStats() {
+    statNumbers.forEach(stat => {
+      const target = parseInt(stat.getAttribute('data-target'));
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.floor(target * progress);
+        
+        stat.textContent = current;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        }
+      }
+      
+      requestAnimationFrame(updateNumber);
+    });
+
+    // プログレスバーアニメーション
+    setTimeout(() => {
+      progressBars.forEach(bar => {
+        if (bar.classList.contains('programming-progress')) {
+          bar.style.width = '80%';
+        } else if (bar.classList.contains('anime-progress')) {
+          bar.style.width = '75%';
+        } else if (bar.classList.contains('music-progress')) {
+          bar.style.width = '95%';
+        } else if (bar.classList.contains('movies-progress')) {
+          bar.style.width = '25%';
+        }
+      });
+    }, 500);
+  }
+
+  // Intersection Observerで統計が見えたらアニメーション開始
+  const statsSection = document.querySelector('.stats-dashboard');
+  if (statsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(statsSection);
+  }
+
+  // ナビゲーションカードの3Dエフェクト
+  const navCards = document.querySelectorAll('.nav-card');
+  navCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      card.style.transform = `translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+    });
+  });
+
   // スライドショー（ホームページのみ）
   const images = document.querySelectorAll('.slide img');
   if (images.length > 0) {

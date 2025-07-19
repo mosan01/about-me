@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホーム - About Me</title>
+  <title>home</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -28,19 +28,138 @@
   <!-- メイン：ヒーローセクション -->
   <main>
     <section class="hero">
-      <h1 class="headline">HOME</h1>
+      <div class="hero-content">
+        <h1 class="headline">WELCOME</h1>
+        <div class="typing-text">
+          <span class="typing-label">I am a </span>
+          <span class="typing-words" id="typing-words">プログラマー</span>
+        </div>
+        <div class="hero-description">
+          <p>JavaScript・Python・Luaを使ったゲーム制作と、Mrs. GREEN APPLEを愛する学生です</p>
+        </div>
+      </div>
     </section>
 
-    <!-- メイン画像表示 -->
-    <section class="featured-image">
-      <img src="img/c7bc8d14-b947-44d0-9d7e-fbfe021d25f6.png" alt="メインビジュアル">
+    <!-- 統計ダッシュボード -->
+    <section class="stats-dashboard">
+      <h2 class="dashboard-title">My Stats</h2>
+      <div class="stats-grid">
+        <div class="stat-card programming">
+          <div class="stat-icon">💻</div>
+          <div class="stat-number" data-target="2">0</div>
+          <div class="stat-unit">年+</div>
+          <div class="stat-label">プログラミング経験</div>
+          <div class="stat-bar">
+            <div class="progress programming-progress"></div>
+          </div>
+        </div>
+        
+        <div class="stat-card anime">
+          <div class="stat-icon">📺</div>
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-unit">作品+</div>
+          <div class="stat-label">年間アニメ視聴</div>
+          <div class="stat-bar">
+            <div class="progress anime-progress"></div>
+          </div>
+        </div>
+        
+        <div class="stat-card music">
+          <div class="stat-icon">🎵</div>
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-unit">時間+</div>
+          <div class="stat-label">毎日の音楽視聴</div>
+          <div class="stat-bar">
+            <div class="progress music-progress"></div>
+          </div>
+        </div>
+        
+        <div class="stat-card movies">
+          <div class="stat-icon">🎬</div>
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-unit">本</div>
+          <div class="stat-label">年間映画鑑賞</div>
+          <div class="stat-bar">
+            <div class="progress movies-progress"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="slideshow">
-      <div class="slide">
-        <img src="img/slide1.jpg" alt="スライド1" class="active">
-        <img src="img/slide2.jpg" alt="スライド2">
-        <img src="img/slide3.jpg" alt="スライド3">
+    <!-- ナビゲーションカード -->
+    <section class="navigation-section">
+      <h2 class="nav-title">Explore More</h2>
+      <div class="navigation-grid">
+        <div class="nav-card about" onclick="location.href='about/about.html'">
+          <div class="nav-background"></div>
+          <div class="nav-content">
+            <div class="nav-icon">👤</div>
+            <h3>About Me</h3>
+            <p>プロフィールと自己紹介</p>
+            <div class="nav-arrow">→</div>
+          </div>
+        </div>
+        
+        <div class="nav-card hobbies" onclick="location.href='hobby/hobby.html'">
+          <div class="nav-background"></div>
+          <div class="nav-content">
+            <div class="nav-icon">🎯</div>
+            <h3>Hobbies</h3>
+            <p>趣味と興味のあること</p>
+            <div class="nav-arrow">→</div>
+          </div>
+        </div>
+        
+        <div class="nav-card games" onclick="location.href='game/game.html'">
+          <div class="nav-background"></div>
+          <div class="nav-content">
+            <div class="nav-icon">🎮</div>
+            <h3>Games</h3>
+            <p>好きなゲームとプレイ履歴</p>
+            <div class="nav-arrow">→</div>
+          </div>
+        </div>
+        
+        <div class="nav-card music" onclick="location.href='music/music.html'">
+          <div class="nav-background"></div>
+          <div class="nav-content">
+            <div class="nav-icon">🎵</div>
+            <h3>Music</h3>
+            <p>お気に入りの音楽</p>
+            <div class="nav-arrow">→</div>
+          </div>
+        </div>
+        
+        <div class="nav-card contact" onclick="location.href='contact/contact.html'">
+          <div class="nav-background"></div>
+          <div class="nav-content">
+            <div class="nav-icon">📧</div>
+            <h3>Contact</h3>
+            <p>お問い合わせはこちら</p>
+            <div class="nav-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ライブアクティビティ -->
+    <section class="live-activity">
+      <h2 class="activity-title">Live Activity</h2>
+      <div class="activity-container">
+        <div class="activity-item">
+          <div class="activity-status online"></div>
+          <div class="activity-content">
+            <h4>🎵 今の作業中</h4>
+            <p>Mrs. GREEN APPLEのケセラセラを聴きながら作業中...</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-status idle"></div>
+          <div class="activity-content">
+            <h4>📺 最近観たアニメ</h4>
+            <p>薬屋のひとりごと - 超おすすめ！</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>

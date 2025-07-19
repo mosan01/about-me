@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="hobby.css" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- カーソルの追従用要素 -->
+  <div class="cursor-trail"></div>
+
+  <!-- ヘッダー・ナビゲーション -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/about.html">About Me</a></li>
+        <li><a href="hobby.html" class="active">Hobbies</a></li>
+        <li><a href="../game/game.html">Games</a></li>
+        <li><a href="../music/music.html">Music</a></li>
+        <li><a href="../contact/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="headline">HOBBIES</h1>
+    </section>
+
+    <!-- 趣味カードセクション -->
+    <section class="hobbies-section">
+      <div class="hobbies-container">
+        <h2>趣味・興味のあること</h2>
+        <div class="hobbies-grid">
+          <!-- プログラミング -->
+          <div class="hobby-card" data-category="programming">
+            <div class="hobby-icon">
+              <div class="icon-symbol">💻</div>
+            </div>
+            <h3>プログラミング</h3>
+            <p>Web開発やゲーム制作に興味があります。主にJavaScript。ゲーム用途ではLuaを使用しています。</p>
+            <div class="hobby-stats">
+              <div class="stat">🚀 使用言語: JavaScript, Lua</div>
+              <div class="stat">⏱️ 経験年数: 2年+</div>
+              <div class="stat">🎯 現在の目標: ゲーム制作</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 下段の趣味カード -->
+        <div class="hobbies-grid secondary-hobbies">
+          <!-- アニメ・マンガ -->
+          <div class="hobby-card" data-category="anime">
+            <div class="hobby-icon">
+              <div class="icon-symbol">📺</div>
+            </div>
+            <h3>アニメ</h3>
+            <p>最近だと、恋愛・転生系など様々なジャンルを楽しんでいます。</p>
+            <div class="hobby-stats">
+              <div class="stat">🎬 好きなキャラクター: ピカチュウ</div>
+              <div class="stat">📚 年間視聴数: 30作品+</div>
+              <div class="stat">⭐ 最近のお気に入り: 薬屋のひとりごと</div>
+            </div>
+          </div>
+
+          <!-- 映画鑑賞 -->
+          <div class="hobby-card" data-category="movies">
+            <div class="hobby-icon">
+              <div class="icon-symbol">🎬</div>
+            </div>
+            <h3>映画鑑賞</h3>
+            <p>アクション、感動、アニメ系が特に好き。映画館での迫力ある映像と臨場感を大切にしています。</p>
+            <div class="hobby-stats">
+              <div class="stat">🎭 好きなタイトル: ラーゲリより愛をこめて</div>
+              <div class="stat">🎪 年間鑑賞数: 約５本</div>
+            </div>
+          </div>
+
+          <!-- 音楽鑑賞 -->
+          <div class="hobby-card" data-category="music">
+            <div class="hobby-icon">
+              <div class="icon-symbol">🎵</div>
+            </div>
+            <h3>音楽鑑賞</h3>
+            <p>Mrs. GREEN APPLEが１番好きです！！！</p>
+            <div class="hobby-stats">
+              <div class="stat">🎶 好きなジャンル: J pop, 作業用BGM</div>
+              <div class="stat">👦 好きなアーティスト: Mrs. GREEN APPLE</div>
+              <div class="stat">⏰ 毎日の視聴時間: 3時間+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="footer-nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about/about.html">About Me</a> |
+      <a href="hobby.html">Hobbies</a> |
+      <a href="../game/game.html">Games</a> |
+      <a href="../music/music.html">Music</a> |
+      <a href="../contact/contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="../js/scripts.js"></script>
+  <script src="hobby.js"></script>
+</body>
+</html>

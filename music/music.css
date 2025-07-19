@@ -11,11 +11,15 @@
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(255, 70, 85, 0.4);
   transition: bottom 0.5s ease;
-  z-index: 1000;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .youtube-player.active {
-  bottom: 20px;
+  bottom: 120px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .player-header {
@@ -86,6 +90,33 @@
   animation: rotate 3s linear infinite;
 }
 
+/* 再生ボタンを常に▶に固定 */
+.play-button {
+  position: relative;
+  color: transparent;
+  font-size: 0;
+}
+
+.play-button::after {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.music-cover:hover .play-button::after {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.music-card.playing .play-button::after {
+  content: "▶";
+}
+
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -95,6 +126,10 @@
 @media (max-width: 768px) {
   .youtube-player {
     width: 95%;
+  }
+  
+  .youtube-player.active {
+    bottom: 140px;
   }
   
   .player-container iframe {
