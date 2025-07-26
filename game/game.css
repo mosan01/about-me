@@ -559,12 +559,13 @@
 
 @media (max-width: 768px) {
   .game-slideshow {
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     border-radius: 8px;
+    border-width: 1px; /* 枠を細くする */
   }
   
   .slideshow-container {
-    padding-bottom: 56.25%; /* モバイルでも16:9比率を維持 */
+    padding-bottom: 45%; /* より横長にして上下の余白を減らす */
     border-radius: 8px;
   }
   
@@ -594,21 +595,21 @@
   }
   
   .slide-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
   }
   
   .prev-btn {
-    left: 10px;
+    left: 8px;
   }
   
   .next-btn {
-    right: 10px;
+    right: 8px;
   }
   
   .slide-indicators {
-    bottom: 20px;
+    bottom: 12px; /* インジケーターを下に近づける */
   }
   
   .game-links {
@@ -648,12 +649,13 @@
 
 @media (max-width: 480px) {
   .game-slideshow {
-    margin: 0.5rem auto;
+    margin: 0.3rem auto;
     border-radius: 6px;
+    border-width: 1px; /* さらに細い枠 */
   }
   
   .slideshow-container {
-    padding-bottom: 75%; /* 小さい画面ではより縦長に */
+    padding-bottom: 40%; /* より横長にして上下をさらに削減 */
     border-radius: 6px;
   }
   
@@ -678,21 +680,21 @@
   }
   
   .slide-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
   
   .prev-btn {
-    left: 8px;
+    left: 6px;
   }
   
   .next-btn {
-    right: 8px;
+    right: 6px;
   }
   
   .slide-indicators {
-    bottom: 15px;
+    bottom: 8px; /* より下に配置 */
   }
   
   .indicator {
