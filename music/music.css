@@ -135,4 +135,75 @@
   .player-container iframe {
     height: 250px;
   }
+  
+  .music-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .music-card {
+    padding: 2rem;
+  }
+  
+  .music-cover {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .play-button::after {
+    font-size: 1.5rem;
+  }
+  
+  .player-header {
+    padding: 0.8rem;
+  }
+  
+  .player-header h3 {
+    font-size: 1rem;
+  }
+  
+  .player-container {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .youtube-player {
+    width: 98%;
+  }
+  
+  .youtube-player.active {
+    bottom: 120px;
+  }
+  
+  .player-container iframe {
+    height: 200px;
+  }
+  
+  .music-grid {
+    gap: 1rem;
+  }
+  
+  .music-card {
+    padding: 1.5rem;
+  }
+  
+  .music-cover {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .play-button::after {
+    font-size: 1.3rem;
+  }
+  
+  .player-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .close-player {
+    font-size: 1.2rem;
+    width: 25px;
+    height: 25px;
+  }
 }

@@ -539,9 +539,20 @@
 }
 
 /* レスポンシブ対応 */
+@media (max-width: 1200px) {
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .game-slideshow {
+    margin: 1rem auto;
+  }
+  
   .slideshow-container {
-    height: 300px;
+    padding-bottom: 60%; /* モバイルでは少し縦長に */
   }
   
   .slide-overlay {
@@ -549,10 +560,11 @@
     right: 0;
     text-align: center;
     border-radius: 0;
+    padding: 1.5rem;
   }
   
   .slide-overlay h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .slide-overlay p {
@@ -565,16 +577,111 @@
     font-size: 1.5rem;
   }
   
-  .game-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .prev-btn {
     left: 10px;
   }
   
   .next-btn {
     right: 10px;
+  }
+  
+  .game-links {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .game-links h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .game-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .game-link-card {
+    padding: 2rem;
+    min-height: 400px;
+  }
+  
+  .game-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .game-link-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .stat {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideshow-container {
+    padding-bottom: 70%;
+  }
+  
+  .slide-overlay {
+    padding: 1rem;
+  }
+  
+  .slide-overlay h3 {
+    font-size: 1.5rem;
+  }
+  
+  .slide-overlay p {
+    font-size: 0.9rem;
+  }
+  
+  .slide-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .game-links {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+  
+  .game-links h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .game-link-card {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+  
+  .game-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+  
+  .game-link-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .rank {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .stat {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  
+  .click-hint {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -585,8 +692,10 @@
   }
   
   .cursor-trail {
-    width: 30px;
-    height: 30px;
-    box-shadow: none;
+    display: none; /* モバイルではカーソルトレイルを非表示 */
+  }
+  
+  .game-link-card:hover {
+    animation: none; /* モバイルではアニメーションを軽量化 */
   }
 }

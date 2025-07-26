@@ -89,12 +89,46 @@ body {
   position: relative;
 }
 
-.navbar ul {
+.nav-menu {
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #f0f0f0;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .navbar a {
@@ -810,15 +844,134 @@ footer {
   }
 }
 
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
+  /* モバイルナビゲーション */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: #1a1f25;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu li {
+    margin: 1rem 0;
+  }
+  
+  .navbar a {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    display: block;
+    width: 200px;
+    text-align: center;
+  }
+
+  /* ナビゲーション */
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  /* ヒーローセクション */
+  .hero {
+    padding: 4rem 1rem 2rem;
+  }
+  
+  .headline {
+    font-size: 3rem;
+  }
+  
+  .typing-text {
+    font-size: 1.2rem;
+  }
+  
+  /* 統計ダッシュボード */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  /* ナビゲーションカード */
+  .navigation-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .nav-card {
+    padding: 2rem;
+  }
+  
+  /* プロフィールカード */
   .profile-card,
   .game-item {
     grid-template-columns: 1fr;
     text-align: center;
   }
   
+  /* 趣味・音楽グリッド */
   .hobby-grid,
   .music-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* カーソルトレイル（モバイルでは非表示） */
+  .cursor-trail {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 超小型画面対応 */
+  .hero {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .headline {
+    font-size: 2.5rem;
+  }
+  
+  .navbar a {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card {
+    padding: 0.8rem;
+  }
+  
+  .nav-card {
+    padding: 1.5rem;
+  }
+  
+  .nav-card h3 {
+    font-size: 1.2rem;
   }
 }

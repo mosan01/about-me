@@ -464,3 +464,60 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 2rem 1rem;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+  
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  .contact-intro p {
+    font-size: 0.9rem;
+  }
+  
+  .contact-form-container {
+    padding: 1rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .contact-icon {
+    margin: 0 auto;
+  }
+}

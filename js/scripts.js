@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // モバイルメニューの機能
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // メニュー項目をクリックしたらメニューを閉じる
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // 画面外をクリックしたらメニューを閉じる
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
+    });
+  }
+
   // カーソルトレイル機能
   const cursor = document.querySelector('.cursor-trail');
   if (cursor) {

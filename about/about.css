@@ -395,3 +395,75 @@
     padding: 1.5rem;
   }
 }
+
+/* 追加のレスポンシブ対応 */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 2rem 1rem;
+  }
+  
+  .profile-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skill-category {
+    padding: 1.5rem;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.5rem;
+  }
+  
+  .skill-list {
+    gap: 0.8rem;
+  }
+  
+  .skill-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  .profile-card {
+    padding: 1.5rem;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.8rem;
+  }
+  
+  .profile-info p {
+    font-size: 0.9rem;
+  }
+  
+  .skill-category {
+    padding: 1rem;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}

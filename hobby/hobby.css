@@ -344,3 +344,65 @@
     padding: 1.5rem;
   }
 }
+
+/* 追加のレスポンシブ対応 */
+@media (max-width: 1200px) {
+  .secondary-hobbies {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hobbies-section {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+  
+  .hobbies-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hobby-card {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+  
+  .hobby-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .icon-symbol {
+    font-size: 1.8rem;
+  }
+  
+  .hobby-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hobby-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hobby-stats {
+    gap: 0.6rem;
+  }
+  
+  .stat {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 0.5rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+}
