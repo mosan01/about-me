@@ -26,13 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // カーソルトレイル機能
+  // カーソルトレイル機能（モバイルでは無効）
   const cursor = document.querySelector('.cursor-trail');
-  if (cursor) {
+  if (cursor && !window.matchMedia('(max-width: 768px)').matches && !('ontouchstart' in window)) {
     document.addEventListener('mousemove', (e) => {
       cursor.style.top = `${e.clientY}px`;
       cursor.style.left = `${e.clientX}px`;
     });
+  } else if (cursor) {
+    cursor.style.display = 'none';
   }
 
   // タイピングアニメーション（ホームページのみ）
