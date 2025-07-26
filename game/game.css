@@ -121,6 +121,18 @@
     transform: none !important;
     border: none !important; /* 不要な境界線を削除 */
     outline: none !important; /* アウトラインも削除 */
+    box-shadow: none !important; /* ボックスシャドウも削除 */
+  }
+  
+  /* スライドショー全体の境界線も調整 */
+  .game-slideshow {
+    box-shadow: none !important; /* モバイルではシャドウを削除 */
+  }
+  
+  /* スライドコンテナも調整 */
+  .slideshow-container {
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -131,6 +143,18 @@
     border-radius: 6px !important;
     border: none !important; /* 黒い線の原因となる境界線を削除 */
     outline: none !important;
+    box-shadow: none !important; /* ボックスシャドウも削除 */
+  }
+  
+  /* より小さな画面でも境界線とシャドウを完全に削除 */
+  .game-slideshow {
+    box-shadow: none !important;
+    border: 2px solid #ff4655 !important; /* メインの境界線のみ残す */
+  }
+  
+  .slideshow-container {
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -566,17 +590,27 @@
     margin: 0.5rem auto;
     border-radius: 8px;
     border-width: 2px; /* 枠を適度な太さに */
+    box-shadow: none !important; /* モバイルではシャドウを削除 */
   }
   
   .slideshow-container {
     padding-bottom: 35%; /* さらに横長にして上下の余白を最小化 */
     border-radius: 8px;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   .game-slide {
     border-radius: 8px;
-    border: none; /* 重複する境界線を削除 */
-    outline: none;
+    border: none !important; /* 重複する境界線を削除 */
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* 疑似要素も無効化 */
+  .game-slide::after,
+  .game-slide::before {
+    display: none !important;
   }
   
   .slide-overlay {
@@ -588,6 +622,8 @@
     border-radius: 0 0 8px 8px;
     padding: 1rem 1rem; /* パディングを減らして画像領域を確保 */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+    border: none !important; /* オーバーレイの境界線も削除 */
+    box-shadow: none !important;
   }
   
   .slide-overlay h3 {
@@ -663,23 +699,36 @@
     margin: 0.5rem auto;
     border-radius: 6px;
     border-width: 2px; /* 適度な枠の太さを維持 */
+    box-shadow: none !important;
+    border: 2px solid #ff4655 !important; /* メインの境界線のみ残す */
   }
   
   .slideshow-container {
     padding-bottom: 30%; /* 極限まで横長にして余白を削除 */
     border-radius: 6px;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   .game-slide {
     border-radius: 6px;
-    border: none; /* 黒い線を完全に除去 */
-    outline: none;
+    border: none !important; /* 黒い線を完全に除去 */
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* 疑似要素も完全に無効化 */
+  .game-slide::after,
+  .game-slide::before {
+    display: none !important;
   }
   
   .slide-overlay {
     padding: 0.8rem 0.6rem; /* さらにコンパクト */
     border-radius: 0 0 6px 6px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6), transparent);
+    border: none !important; /* 480px以下でも境界線削除 */
+    box-shadow: none !important;
   }
   
   .slide-overlay h3 {
@@ -761,6 +810,8 @@
 @media (max-width: 768px) {
   .slide-overlay {
     backdrop-filter: none; /* blur処理を無効化 */
+    border: none !important; /* 境界線完全削除 */
+    box-shadow: none !important; /* シャドウも削除 */
   }
   
   .cursor-trail {
@@ -769,5 +820,21 @@
   
   .game-link-card:hover {
     animation: none; /* モバイルではアニメーションを軽量化 */
+  }
+  
+  /* 全ての要素から境界線を強制削除 */
+  .game-slideshow *,
+  .slideshow-container *,
+  .game-slide *,
+  .game-slide img {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* メインコンテナの境界線のみ保持 */
+  .game-slideshow {
+    border: 2px solid #ff4655 !important;
+    box-shadow: none !important;
   }
 }
