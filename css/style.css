@@ -96,14 +96,18 @@ body {
   position: relative;
 }
 
+/* デスクトップのナビゲーションメニュー */
 .nav-menu {
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
+/* モバイルメニューボタン（デスクトップでは非表示） */
 .mobile-menu-toggle {
   display: none; /* デスクトップでは非表示 */
   flex-direction: column;
@@ -856,27 +860,31 @@ footer {
 @media (max-width: 768px) {
   /* モバイルナビゲーション */
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
   }
   
+  /* デスクトップメニューを隠す */
   .nav-menu {
-    position: fixed;
+    position: fixed !important;
     top: 60px;
-    left: -100%;
+    left: -100% !important;
     width: 100%;
     height: calc(100vh - 60px);
     background-color: #1a1f25;
-    flex-direction: column;
+    flex-direction: column !important;
     justify-content: flex-start;
     align-items: center;
     padding-top: 2rem;
     transition: left 0.3s ease;
     z-index: 1000;
     border-top: 2px solid #333;
+    margin: 0;
+    list-style: none;
+    gap: 0 !important;
   }
   
   .nav-menu.active {
-    left: 0;
+    left: 0 !important;
   }
   
   .nav-menu li {
@@ -886,8 +894,8 @@ footer {
   }
   
   .navbar a {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
     border-radius: 8px;
     display: block;
     width: 80%;
@@ -899,18 +907,19 @@ footer {
   
   .navbar a:hover,
   .navbar a.active {
-    background-color: rgba(255, 70, 85, 0.1);
-    border-color: #ff4655;
-    color: #ff4655;
+    background-color: rgba(255, 70, 85, 0.1) !important;
+    border-color: #ff4655 !important;
+    color: #ff4655 !important;
   }
 
   /* ナビゲーション基本設定 */
   .navbar {
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1rem !important;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
   }
 
   /* ヒーローセクション */
@@ -966,6 +975,22 @@ footer {
 
 @media (max-width: 480px) {
   /* 超小型画面対応 */
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  
+  .nav-menu {
+    position: fixed !important;
+    top: 60px;
+    left: -100% !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  
+  .nav-menu.active {
+    left: 0 !important;
+  }
+  
   .hero {
     padding: 3rem 1rem 2rem;
   }
@@ -975,8 +1000,9 @@ footer {
   }
   
   .navbar a {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.8rem;
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1rem !important;
+    width: 90%;
   }
   
   .stats-grid {

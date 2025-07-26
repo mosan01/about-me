@@ -4,9 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
   
   if (mobileMenuToggle && navMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
+    // デバッグ用ログ
+    console.log('モバイルメニュー要素が見つかりました');
+    
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log('ハンバーガーメニューがクリックされました');
+      
       mobileMenuToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
+      
+      // ボディのスクロールを制御
+      if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
     
     // メニュー項目をクリックしたらメニューを閉じる
@@ -14,16 +29,31 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         mobileMenuToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
     
     // 画面外をクリックしたらメニューを閉じる
     document.addEventListener('click', (e) => {
-      if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      if (navMenu.classList.contains('active') && 
+          !mobileMenuToggle.contains(e.target) && 
+          !navMenu.contains(e.target)) {
         mobileMenuToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = '';
       }
     });
+    
+    // ESCキーでメニューを閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  } else {
+    console.log('モバイルメニュー要素が見つかりませんでした');
   }
 
   // カーソルトレイル機能（モバイルでは無効）
