@@ -559,13 +559,13 @@
 
 @media (max-width: 768px) {
   .game-slideshow {
-    margin: 0.5rem auto;
+    margin: 0.3rem auto;
     border-radius: 8px;
     border-width: 1px; /* 枠を細くする */
   }
   
   .slideshow-container {
-    padding-bottom: 45%; /* より横長にして上下の余白を減らす */
+    padding-bottom: 35%; /* さらに横長にして上下の余白を最小化 */
     border-radius: 8px;
   }
   
@@ -580,17 +580,17 @@
     bottom: 0;
     text-align: center;
     border-radius: 0 0 8px 8px;
-    padding: 1.5rem 1rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), transparent);
+    padding: 1rem 1rem; /* パディングを減らして画像領域を確保 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
   }
   
   .slide-overlay h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.6rem; /* タイトルサイズを少し小さく */
+    margin-bottom: 0.3rem;
   }
   
   .slide-overlay p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* テキストサイズを小さく */
     margin: 0;
   }
   
@@ -609,7 +609,12 @@
   }
   
   .slide-indicators {
-    bottom: 12px; /* インジケーターを下に近づける */
+    bottom: 6px; /* インジケーターをさらに下端に */
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
   }
   
   .game-links {
@@ -649,13 +654,13 @@
 
 @media (max-width: 480px) {
   .game-slideshow {
-    margin: 0.3rem auto;
+    margin: 0.2rem auto;
     border-radius: 6px;
     border-width: 1px; /* さらに細い枠 */
   }
   
   .slideshow-container {
-    padding-bottom: 40%; /* より横長にして上下をさらに削減 */
+    padding-bottom: 30%; /* 極限まで横長にして余白を削除 */
     border-radius: 6px;
   }
   
@@ -664,18 +669,18 @@
   }
   
   .slide-overlay {
-    padding: 1rem 0.8rem;
+    padding: 0.8rem 0.6rem; /* さらにコンパクト */
     border-radius: 0 0 6px 6px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6), transparent);
   }
   
   .slide-overlay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.3rem; /* さらにコンパクト */
+    margin-bottom: 0.2rem;
   }
   
   .slide-overlay p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
   }
   
@@ -694,12 +699,12 @@
   }
   
   .slide-indicators {
-    bottom: 8px; /* より下に配置 */
+    bottom: 4px; /* 最下端に配置 */
   }
   
   .indicator {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
   
   .game-links {
