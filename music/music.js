@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 音楽の情報
   const musicData = {
-    'gpdh9AUzQjY': 'カーテンコール',
-    'rHcQZ8kHJ_w': '15:03',
+    'HrRxvh4bkHE': 'クスシキ',
+    'Yb-rLsCpBvI': '2:23 AM',
     'Gi2yWFqN_Zc': 'ゲームBGM'
   };
 
